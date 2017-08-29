@@ -4,10 +4,10 @@ The project description
 
 ## Team
 
-- teamMember
-- teamMember
-- teamMember
-- teamMember
+- Ryan Breeden
+- Ian Mobley
+- Kiyeon Park
+- Jason Steiber
 
 ## Roadmap
 
