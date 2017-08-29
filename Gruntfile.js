@@ -9,15 +9,6 @@ module.exports = function(grunt) {
       target: ['Gruntfile.js', 'client/**/*.js', 'db/**/*.js', 'server/**/*.js']
     },
 
-    mochaTest: {
-      test: {
-        options: {
-          reporter: 'spec'
-        },
-        src: ['server/test/**/*.js']
-      }
-    },
-
     pgcreatedb: {
       default: {
         connection: {
@@ -33,10 +24,8 @@ module.exports = function(grunt) {
 
   });
 
-  grunt.loadNpmTasks('grunt-mocha-test');
   grunt.loadNpmTasks('grunt-eslint');
   grunt.loadNpmTasks('grunt-pg');
 
   grunt.registerTask('default', ['eslint']);
-  grunt.registerTask('test', ['mochaTest']);
 };
