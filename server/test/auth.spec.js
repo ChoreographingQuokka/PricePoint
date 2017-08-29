@@ -1,4 +1,3 @@
-const expect = require('chai').expect;
 const httpMocks = require('node-mocks-http');
 const dbUtils = require('../../db/lib/utils.js');
 const passport = require('../middleware/passport');
