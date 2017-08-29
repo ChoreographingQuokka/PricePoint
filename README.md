@@ -7,7 +7,7 @@ The project description
 - Ryan Breeden
 - Ian Mobley
 - Kiyeon Park
-- Jason Steiber
+- Jason Stieber
 
 ## Roadmap
 
