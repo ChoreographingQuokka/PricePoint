@@ -21,9 +21,26 @@
     }
   },
 
+  "redis": {
+  },
+
   "passport": {
-    "Google": {},
-    "Facebook": {},
-    "Twitter": {}
+    "Google": {
+      "clientID": "",
+      "clientSecret": "",
+      "callbackURL": ""
+    },
+
+    "Facebook": {
+      "clientID": "",
+      "clientSecret": "",
+      "callbackURL": ""
+    },
+
+    "Twitter": {
+      "consumerKey": "",
+      "consumerSecret": "",
+      "callbackURL": ""
+    }
   }
 }
