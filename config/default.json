@@ -26,21 +26,21 @@
 
   "passport": {
     "Google": {
-      "clientID": "",
-      "clientSecret": "",
-      "callbackURL": ""
+      "clientID": "foo",
+      "clientSecret": "foo",
+      "callbackURL": "foo"
     },
 
     "Facebook": {
-      "clientID": "",
-      "clientSecret": "",
-      "callbackURL": ""
+      "clientID": "foo",
+      "clientSecret": "foo",
+      "callbackURL": "foo"
     },
 
     "Twitter": {
-      "consumerKey": "",
-      "consumerSecret": "",
-      "callbackURL": ""
+      "consumerKey": "foo",
+      "consumerSecret": "foo",
+      "callbackURL": "foo"
     }
   }
 }
