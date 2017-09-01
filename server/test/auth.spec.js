@@ -32,7 +32,7 @@ describe('Authentication', () => {
       models.Profile.where({ email: 'admin@domain.com' }).fetch()
         .then(profile => {
           passport.authenticate('local-login', {}, (err, user, info) => {
-            expect(user).to.be.an('object');
+            expect(typeof user).toBe('object');
             expect(user.id).toBe(profile.get('id'));
             expect(user.email).toBe(profile.get('email'));
             done(err);
@@ -86,7 +86,7 @@ describe('Authentication', () => {
       passport.authenticate('local-signup', {}, (err, user, info) => {
         models.Profile.where({ email: 'TestUser4@mail.com' }).fetch()
           .then(profile => {
-            expect(user).to.be.an('object');
+            expect(typeof user).toBe('object');
             expect(user.id).toBe(profile.get('id'));
             expect(user.email).toBe(profile.get('email'));
             done(err);
