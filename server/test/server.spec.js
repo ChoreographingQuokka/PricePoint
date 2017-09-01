@@ -1,7 +1,6 @@
 'use strict';
 const request = require('supertest');
 const express = require('express');
-const expect = require('chai').expect;
 const app = require('../app.js');
 
 describe('basic server', function() {
@@ -10,7 +9,7 @@ describe('basic server', function() {
       .get('/api')
       .expect(200)
       .expect(function(res) {
-        expect(res.text).to.equal('Hello World!');
+        expect(res.text).toBe('Hello World!');
       })
       .end(done);
   });
@@ -20,7 +19,7 @@ describe('basic server', function() {
       .post('/api')
       .expect(201)
       .expect(function(res) {
-        expect(res.body.data).to.equal('Posted!');
+        expect(res.body.data).toBe('Posted!');
       })
       .end(done);
   });

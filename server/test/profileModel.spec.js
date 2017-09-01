@@ -1,4 +1,3 @@
-const expect = require('chai').expect;
 const Profile = require('../../db/models/profiles.js');
 const dbUtils = require('../../db/lib/utils.js');
 
@@ -16,8 +15,8 @@ describe('Profile model tests', function () {
   it('Should be able to retrieve test data', function (done) {
     Profile.forge().fetchAll()
       .then(function (results) {
-        expect(results.length).to.equal(1);
-        expect(results.at(0).get('id')).to.equal(1);
+        expect(results.length).toBe(1);
+        expect(results.at(0).get('id')).toBe(1);
         done();
       })
       .catch(function (err) {
@@ -42,7 +41,7 @@ describe('Profile model tests', function () {
   it('Should be able to update an already existing record', function (done) {
     Profile.where({ id: 1 }).fetch()
       .then(function (result) {
-        expect(result.get('id')).to.equal(1);
+        expect(result.get('id')).toBe(1);
       })
       .then(function () {
         return Profile.where({ id: 1 }).save({ first: 'James', last: 'Davenport' }, { method: 'update' });
@@ -51,8 +50,8 @@ describe('Profile model tests', function () {
         return Profile.where({ id: 1 }).fetch();
       })
       .then(function (result) {
-        expect(result.get('first')).to.equal('James');
-        expect(result.get('last')).to.equal('Davenport');
+        expect(result.get('first')).toBe('James');
+        expect(result.get('last')).toBe('Davenport');
         done();
       })
       .catch(function (err) {
@@ -69,7 +68,7 @@ describe('Profile model tests', function () {
         return Profile.where({ id: 1 }).fetch();
       })
       .then(function (result) {
-        expect(result).to.equal(null);
+        expect(result).toBe(null);
         done();
       })
       .catch(function (err) {
