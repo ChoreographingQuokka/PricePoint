@@ -4,7 +4,7 @@
   "scripts": {
     "postinstall": "curl -s https://raw.githubusercontent.com/reactorcore/pomander/master/bin/install | bash",
     "start": "nodemon server",
-    "test": "jest --coverage",
+    "test": "jest",
     "build": "webpack --watch"
   },
   "author": "Hack Reactor",
