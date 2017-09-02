@@ -4,7 +4,7 @@
   "scripts": {
     "postinstall": "curl -s https://raw.githubusercontent.com/reactorcore/pomander/master/bin/install | bash",
     "start": "nodemon server",
-    "test": "mocha -R spec server/test/**/*.js",
+    "test": "jest -i --coverage",
     "build": "webpack --watch"
   },
   "author": "Hack Reactor",
@@ -44,11 +44,11 @@
     "babel-plugin-transform-es2015-modules-commonjs": "^6.24.0",
     "babel-preset-latest": "^6.24.0",
     "babel-preset-react": "^6.23.0",
-    "chai": "^3.5.0",
+    "enzyme": "^2.9.1",
     "grunt": "~0.4.5",
     "grunt-eslint": "^19.0.0",
-    "mocha": "^3.2.0",
-    "node-mocks-http": "^1.6.1",
+    "jest": "^20.0.4",
+    "node-mocks-http": "^1.6.4",
     "supertest": "^3.0.0",
     "webpack": "^2.3.2",
     "webpack-dev-server": "^2.4.2"

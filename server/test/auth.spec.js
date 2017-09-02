@@ -1,4 +1,3 @@
-const expect = require('chai').expect;
 const httpMocks = require('node-mocks-http');
 const dbUtils = require('../../db/lib/utils.js');
 const passport = require('../middleware/passport');
@@ -11,13 +10,13 @@ describe('Authentication', () => {
     return object;
   };
 
-  beforeEach(function (done) {
-    dbUtils.rollbackMigrate(done);
+  beforeEach(function () {
+    return dbUtils.rollbackMigrate();
   });
 
   // Resets database back to original settings
-  afterEach(function (done) {
-    dbUtils.rollback(done);
+  afterEach(function () {
+    return dbUtils.rollback();
   });
 
   describe('Passport local-login strategy', () => {
@@ -33,9 +32,9 @@ describe('Authentication', () => {
       models.Profile.where({ email: 'admin@domain.com' }).fetch()
         .then(profile => {
           passport.authenticate('local-login', {}, (err, user, info) => {
-            expect(user).to.be.an('object');
-            expect(user.id).to.equal(profile.get('id'));
-            expect(user.email).to.equal(profile.get('email'));
+            expect(typeof user).toBe('object');
+            expect(user.id).toBe(profile.get('id'));
+            expect(user.email).toBe(profile.get('email'));
             done(err);
           })(request, response);
         });
@@ -51,8 +50,8 @@ describe('Authentication', () => {
       request.flash = fakeFlash;
       let response = httpMocks.createResponse();
       passport.authenticate('local-login', {}, (err, user, info) => {
-        expect(user).to.equal(false);
-        expect(err).to.be.null;
+        expect(user).toBe(false);
+        expect(err).toBeNull;
         done(err);
       })(request, response);
     });
@@ -69,8 +68,8 @@ describe('Authentication', () => {
       request.flash = fakeFlash;
       let response = httpMocks.createResponse();
       passport.authenticate('local-signup', {}, (err, user, info) => {
-        expect(user).to.be.equal(false);
-        expect(info.signupMessage).to.equal('An account with this email address already exists.');
+        expect(user).toBeFalsy;
+        expect(info.signupMessage).toBe('An account with this email address already exists.');
         done(err);
       })(request, response);
     });
@@ -87,9 +86,9 @@ describe('Authentication', () => {
       passport.authenticate('local-signup', {}, (err, user, info) => {
         models.Profile.where({ email: 'TestUser4@mail.com' }).fetch()
           .then(profile => {
-            expect(user).to.be.an('object');
-            expect(user.id).to.equal(profile.get('id'));
-            expect(user.email).to.equal(profile.get('email'));
+            expect(typeof user).toBe('object');
+            expect(user.id).toBe(profile.get('id'));
+            expect(user.email).toBe(profile.get('email'));
             done(err);
           });
       })(request, response);

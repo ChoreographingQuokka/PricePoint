@@ -1,22 +1,21 @@
 'use strict';
 const request = require('supertest');
 const express = require('express');
-const expect = require('chai').expect;
 const app = require('../app.js');
 const dbUtils = require('../../db/lib/utils.js');
 
 describe('Profiles API', function () {
-  beforeEach(function (done) {
-    dbUtils.rollbackMigrate(done);
+  beforeEach(function () {
+    return dbUtils.rollbackMigrate();
   });
 
   // Resets database back to original settings
-  afterEach(function (done) {
-    dbUtils.rollback(done);
+  afterEach(function () {
+    return dbUtils.rollback();
   });
 
-  it('accepts GET requests to /api/profiles', function (done) {
-    request(app)
+  it('accepts GET requests to /api/profiles', function () {
+    return request(app)
       .get('/api/profiles')
       .expect(res => {
         res.body = {
@@ -25,12 +24,11 @@ describe('Profiles API', function () {
       })
       .expect(200, {
         length: 1
-      })
-      .end(done);
+      });
   });
 
-  it('accepts GET requests to /api/profiles/:id', function (done) {
-    request(app)
+  it('accepts GET requests to /api/profiles/:id', function () {
+    return request(app)
       .get('/api/profiles/1')
       .expect(res => {
         res.body = {
@@ -41,15 +39,13 @@ describe('Profiles API', function () {
       .expect(200, {
         id: 1,
         created_at: true
-      })
-      .end(done);
+      });
   });
 
-  it('sends 404 if id on GET requests to /api/profiles/:id does not exist', function (done) {
-    request(app)
+  it('sends 404 if id on GET requests to /api/profiles/:id does not exist', function () {
+    return request(app)
       .get('/api/profiles/123')
-      .expect(404)
-      .end(done);
+      .expect(404);
   });
 
   // it('accepts POST requests to /api/profiles', function (done) {
@@ -101,11 +97,10 @@ describe('Profiles API', function () {
       });
   });
 
-  it('sends 404 if id on PUT requests to /api/profiles/:id does not exist', function (done) {
-    request(app)
+  it('sends 404 if id on PUT requests to /api/profiles/:id does not exist', function () {
+    return request(app)
       .put('/api/profiles/123')
-      .expect(404)
-      .end(done);
+      .expect(404);
   });
 
   // it('accepts DELETE requests to /api/profiles/:id', function (done) {
