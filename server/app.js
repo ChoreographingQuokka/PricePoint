@@ -42,8 +42,7 @@ app.use('/product/:upc', (req, res) => {
         .then( ()=> {
           state.user = req.user;
           state.tables = {
-            default: [
-            ]};
+            default: []};
           res.render('index', {state});
         });
     })
