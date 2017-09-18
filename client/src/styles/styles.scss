@@ -111,6 +111,10 @@ a:focus {
 .higher {
   color: #bf0c0c;
 }
+.starGlyph {
+  color: yellow;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
 th {
   font-size: 16px; 
 }

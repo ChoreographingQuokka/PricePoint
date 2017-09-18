@@ -3,6 +3,7 @@ const express = require('express');
 const router = express.Router();
 const Promise = require('bluebird');
 const amazon = require('../middleware/amazon');
+const CategoriesController = require('../controllers').Categories;
 
 router.route('/')
   .get((req, res) => {
@@ -32,4 +33,11 @@ router.route('/search')
         res.sendStatus(503);
       });
   });
+
+router.route('/categories')
+  .post((req, res) => {
+    console.log('API.JS', req);
+    // return CategoriesController.addCategory(user, id)
+  });
+
 module.exports = router;

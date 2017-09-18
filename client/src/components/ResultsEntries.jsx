@@ -12,17 +12,19 @@ const ResultsEntries = (props) => (
     {props.results.map((el) => {
       //reduce length to eliminate spill over
       var name = el.name;
-      if (name.length > 84) {
-        name = name.slice(0, 84) + '...';
+      if ( name ) {
+        if (name.length > 84) {
+          name = name.slice(0, 84) + '...';
+        }
       }
+     
       //reduce length to eliminate spill over  
       var description = el.description;
-      if (description) {
+      if ( description ) {
         if (description.length > 390) {
           description = description.slice(0, 390) + '...';
         }
       }
-      
       var lowestPriceURL, lowestPriceValue;
       //for each vendor a product has
       for (var vendor in el.vendors) {

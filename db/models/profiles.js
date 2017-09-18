@@ -6,6 +6,11 @@ const Profile = db.Model.extend({
   auths: function() {
     return this.hasMany('Auth');
   },
+
+  categories: function() {
+    return this.hasMany('Categories');
+  },
+
 });
 
 module.exports = db.model('Profile', Profile);

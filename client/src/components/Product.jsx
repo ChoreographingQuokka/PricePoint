@@ -15,8 +15,8 @@ const Product = (props) => {
         productItem.push(item);
       }
     });
-
   };
+
   getProductDataFromState();
   let sendToProductPage = () => {
     window.open(productItem[0].itemURL);
