@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { FormGroup, FormControl, ControlLabel, HelpBlock } from 'react-bootstrap';
+import axios from 'axios';
 
 class FriendSearch extends React.Component {
   constructor(props) {
@@ -31,7 +32,12 @@ class FriendSearch extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    console.log(this.state.value);
+    var query = this.state.value;
+    axios.get('query/user', { params: {email: query} })
+      .then((response) => {
+        console.log(response);
+      })
+      .catch( error => console.log(error));
   }
 
   render() {

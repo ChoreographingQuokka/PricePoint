@@ -27,6 +27,7 @@ app.use(express.static(path.join(__dirname, '../public')));
 
 app.use('/', routes.auth);
 app.use('/api', routes.api);
+app.use('/query', routes.query);
 app.use('/api/profiles', routes.profiles);
 app.use('/product/:upc', (req, res) => {
   var state = {};
