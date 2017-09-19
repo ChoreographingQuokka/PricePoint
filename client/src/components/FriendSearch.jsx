@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Form, FormGroup, FormControl, ControlLabel } from 'react-bootstrap';
+import { FormGroup, FormControl, ControlLabel, HelpBlock } from 'react-bootstrap';
 
 class FriendSearch extends React.Component {
   constructor(props) {
@@ -8,27 +8,45 @@ class FriendSearch extends React.Component {
     this.state = {
       value: ''
     };
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleChange(event) {
-    event.preventDefault();
-    console.log(event);
+  // getValidationState() {
+  //   let splitByAts = this.state.value.split('@');
+  //   let splitByDots = splitByAts.length > 1 ? splitByAts[1].split('.') : null;
+  //   if (splitByDots && plitByAts.length === 2 && splitByAts[0].length > 0
+  //       && splitByDots[0].length > 0 && splitByDots[1].length > 0 )
+  //       return 'success';
+  //   else return 'error';
+  //  validationDate = {this.getValidationState()}
+  //<HelpBlock>Must enter a valid email.</HelpBlock>
+  // }
+
+  handleChange(e) {
     this.setState({
-      value: event.target.value
+      value: e.target.value
     });
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+    console.log(this.state.value);
   }
 
   render() {
     return (
-      <form>
-        <FormGroup controlId="findAFriend" >
-          <ControlLabel>Find a friend</ControlLabel>
+      <form onSubmit={this.handleSubmit}>
+        <FormGroup controlId="findAFriend"
+        >
+          <ControlLabel>Find a Friend</ControlLabel>
           <FormControl
             type="text"
             value={this.state.value}
             placeholder="Enter email"
             onChange={this.handleChange}
           />
+          <FormControl.Feedback />
         </FormGroup>
       </form>
     );
