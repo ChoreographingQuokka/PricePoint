@@ -5,5 +5,5 @@ module.exports = {
   ProductUrl: require('./product_url'),
   Profile: require('./profiles'),
   Vendor: require('./vendors'),
+  Categories: require('./categories'),
 };
-

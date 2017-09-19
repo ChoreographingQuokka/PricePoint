@@ -9,28 +9,49 @@ import '../styles/main.scss';
 const ProfileTable = (props) => {
   return (
     <Row>
-      {Object.keys(props.tables).map((el, i) => (
-        <Table>
-          <thead>
-            <tr>
-              <th key={i}>
-                {el}
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            {props.tables[el].map((item, x) => (
-              <tr key={x}>
+      <Table>
+        <th>
+          {props.name}
+        </th>
+        <tbody>
+          {props.items.map( (listItem, i) => {
+            return ( 
+              <tr key={i}>
                 <td>
-                  <Link to={`/product/${item.upc}`}>{item.item}</Link>
+                 <Link to={`/product/${listItem.upc}`}>{listItem.upc}</Link>
                 </td>
-              </tr>
-            ))}
-          </tbody>
-        </Table>
-      ))}
+              </tr>)
+          })}
+        </tbody>
+      </Table>
     </Row>
   );
+
+  // return (
+  //   //old
+  //   <Row>
+  //     {Object.keys(props.tables).map((el, i) => (
+  //       <Table>
+  //         <thead>
+  //           <tr>
+  //             <th key={i}>
+  //               {el}
+  //             </th>
+  //           </tr>
+  //         </thead>
+  //         <tbody>
+  //           {props.tables[el].map((item, x) => (
+  //             <tr key={x}>
+  //               <td>
+  //                 <Link to={`/product/${item.upc}`}>{item.item}</Link>
+  //               </td>
+  //             </tr>
+  //           ))}
+  //         </tbody>
+  //       </Table>
+  //     ))}
+  //   </Row>
+  // );
 };
 
 const mapStateToProps = state => {

@@ -16,6 +16,10 @@ const Product = db.Model.extend({
       .through('ProductUrl');
   },
 
+  categories: function() {
+    return this.belongsToMany('Categories');
+  },
+
   toJSON: function() {
     var product = this.serialize();
     var item = {

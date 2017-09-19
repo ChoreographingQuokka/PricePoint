@@ -36,8 +36,13 @@ router.route('/search')
 
 router.route('/categories')
   .post((req, res) => {
-    console.log('API.JS', req);
-    // return CategoriesController.addCategory(user, id)
+    return CategoriesController.addCategory(req.body.id, req.body.table)
+      .then(res => {
+        console.log('success');
+      })
+      .catch(err => {
+        console.log('error');
+      });
   });
 
 module.exports = router;

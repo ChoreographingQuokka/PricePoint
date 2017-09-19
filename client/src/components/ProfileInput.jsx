@@ -6,15 +6,32 @@ import { connect } from 'react-redux';
 import { createTable } from '../store/actions/tables';
 import { bindActionCreators } from 'redux';
 import '../styles/main.scss';
+import axios from 'axios';
 
-const ProfileInput = ({ createTable }) => {
+
+const ProfileInput = (props) => {
   let input;
   return (
     <Row>
       <Form
-        onSubmit={e => {
+        onSubmit={ e => {
           e.preventDefault();
-          createTable(input.value);
+          //createTable(input.value);
+
+          //send request to db to update user's table list
+          axios.post('api/categories', {id: props.id, table: input.value})
+            .then( response => {
+              console.log('successful: post request');
+              //after we know the info made its way to the db
+              //lets update the state here...
+              //ask the db for the users tables
+
+            })
+            .catch( error => {
+              console.log('failed: post request', err);
+            });
+
+          //reset input feild
           input.value = '';
         }}
       >
@@ -36,9 +53,11 @@ const ProfileInput = ({ createTable }) => {
 };
 
 const mapStateToProps = state => ({
-  tables: state.tables
+  id: state.user.id
 });
+
 const mapDispatchToProps = dispatch => bindActionCreators({
   createTable: createTable,
 }, dispatch);
+
 export default connect(mapStateToProps, mapDispatchToProps)(ProfileInput);
