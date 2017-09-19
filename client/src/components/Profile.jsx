@@ -4,6 +4,7 @@ import { Grid } from 'react-bootstrap';
 import ProfileUser from './ProfileUser.jsx';
 import ProfileInput from './ProfileInput.jsx';
 import ProfileTable from './ProfileTable.jsx';
+import FriendSearch from './FriendSearch.jsx';
 import '../styles/main.scss';
 import { connect } from 'react-redux';
 
@@ -18,6 +19,7 @@ const Profile = () => {
   return (
     <Grid>
       <ProfileUser></ProfileUser>
+      <FriendSearch> </FriendSearch>
       <ProfileInput></ProfileInput>
       {dummyData.map( (list, i) => {
         return <ProfileTable key={i} name={list.name} items={list.listItems}></ProfileTable>
