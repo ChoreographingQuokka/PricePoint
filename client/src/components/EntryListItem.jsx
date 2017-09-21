@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { Row, Table, Button, Glyphicon} from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { deleteTable, deleteItem } from '../store/actions/tables';
+import { deleteItem } from '../store/actions/tables';
 import { bindActionCreators } from 'redux';
 import '../styles/main.scss';
 import axios from 'axios';
@@ -33,7 +33,6 @@ const EntryListItem = (props) => {
 };
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-  deleteTable: deleteTable,
   deleteItem: deleteItem,
 }, dispatch);
 

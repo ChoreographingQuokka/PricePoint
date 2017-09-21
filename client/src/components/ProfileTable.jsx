@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 import { Row, Table, Glyphicon, Button} from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { deleteTable } from '../store/actions/tables';
+import { bindActionCreators } from 'redux';
 import EntryListItem from './EntryListItem.jsx';
 import '../styles/main.scss';
 import axios from 'axios';
@@ -10,11 +12,12 @@ import axios from 'axios';
 const ProfileTable = (props) => {
 
   var onClickRemoveList = () => {
-    console.log('click');
-
-    axios.post('/api/removeCategories', props.user, props.ListName)
+    axios.post('/api/removeCategories', {
+      id: props.user,
+      table: props.listName
+    })
       .then( (res) => {
-        console.log(props.ListName + ' removed form user\'s list');
+        props.deleteTable(props.listId);
       })
       .catch( (err) => {
         console.log(err);
@@ -46,10 +49,14 @@ const ProfileTable = (props) => {
   );
 };
 
+const mapDispatchToProps = dispatch => bindActionCreators({
+  deleteTable: deleteTable,
+}, dispatch);
+
 const mapStateToProps = state => {
   return {
     'user': state.user.id
   };
 };
 
-export default connect(mapStateToProps)(ProfileTable);
+export default connect(mapStateToProps, mapDispatchToProps)(ProfileTable);
