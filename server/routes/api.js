@@ -65,6 +65,7 @@ router.route('/categories')
 
 router.route('/categories/:id')
   .get((req, res) => {
+    console.log(req.query); 
     return CategoriesController.addItem(req.query.id, req.query.table, req.query.upc)
       .then(model => {
         var data = model.serialize();

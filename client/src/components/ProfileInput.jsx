@@ -23,7 +23,7 @@ const ProfileInput = (props) => {
               console.log('successful: post request');
             })
             .catch( error => {
-              console.log('failed: post request', err);
+              console.log('failed: post request', error);
             });
           //reset input feild
           input.value = '';

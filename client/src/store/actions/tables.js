@@ -16,7 +16,7 @@ export const deleteItem = (tableIndex, itemIndex) => ({
   itemIndex,
 });
 
-export const updateTable = (index) => ({
+export const updateTable = (obj, index) => ({
   type: constants.UPDATE_TABLE,
   payload: obj,
   index: index,
