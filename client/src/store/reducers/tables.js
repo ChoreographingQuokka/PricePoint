@@ -12,12 +12,17 @@ export default (state = [], action) => {
       var newState = array.slice();
       delete newState[action.index];
       return newState;
-    }; 
+    };
     return removeCat(state, action);
   case constants.DELETE_ITEM:
     var removeItem = (array, action) => {
       var newState = array.slice();
-      newState[action.tableIndex].list.splice(action.itemIndex, 1);
+      newState[action.tableIndex] = { ...array[action.tableIndex] };
+
+      var list = array[action.tableIndex].list.slice();
+      list.splice(action.itemIndex, 1);
+      newState[action.tableIndex].list = list;
+
       return newState;
     };
     return (removeItem(state, action));

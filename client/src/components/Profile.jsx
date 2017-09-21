@@ -9,13 +9,14 @@ import { connect } from 'react-redux';
 
 
 const Profile = (props) => {
+  console.log('PROFILE RENDER');
 
   return (
     <Grid>
       <ProfileUser></ProfileUser>
       <ProfileInput></ProfileInput>
       {props.tables.map( (item, i) => {
-        return (<ProfileTable key={i} listId={i} listName={item.name} list={item.list}></ProfileTable>);
+        return <ProfileTable key={i} listId={i} listName={item.name} list={item.list}></ProfileTable>;
       })}
     </Grid>
   );

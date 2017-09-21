@@ -54,7 +54,7 @@ const Product = (props) => {
         </Col>
         <Button onClick={sendToProductPage}>BUY NOW</Button>
       </Row>
-      <LineGraph />
+      <LineGraph upc={productItem[0].upc}/>
       <ProductTable></ProductTable>
     </div>
   );

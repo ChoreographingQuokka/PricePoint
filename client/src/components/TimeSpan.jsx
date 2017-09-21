@@ -15,7 +15,6 @@ const TimeSpan = (props) => {
       <MenuItem eventKey='30'>1 Month</MenuItem>
       <MenuItem eventKey='90'>3 Months</MenuItem>
       <MenuItem eventKey='183'>6 Months</MenuItem>
-      <MenuItem eventKey='365'>1 Year</MenuItem>
     </DropdownButton>
   );
 };

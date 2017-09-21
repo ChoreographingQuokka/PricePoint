@@ -34,14 +34,25 @@ body {
 }
 
 .btn-round {
-    width: 40px;
-    height: 40px;
+    background-color: #747474;
+    width: 18px;
+    height: 18px;
     border-radius: 50%;
 }
 
-.btn-round.btn-xs {
-    width: 25px;
-    height: 25px;
+.btn-round:hover {
+  background-color: red;
+}
+
+.glyphicon-center {
+  position: relative;
+  right: 3px;
+  top: 0px;
+  bottom: 3px;
+}
+
+.glyph-color {
+  color: white;
 }
 
 // R E S U L T S //

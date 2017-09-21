@@ -14,9 +14,9 @@ const ProductTable = (props) => {
       product = item;
     }
   });
-   
+
   //build vendor list for headers
-  var vendors = []; 
+  var vendors = [];
   //grab the most recent price for each vendor
   var prices = [];
   var i = 0;
@@ -24,7 +24,7 @@ const ProductTable = (props) => {
     vendors.push(<th key={i}><a href='#'>{vendor}</a></th>);
     i++;
     //grab current price (last item in array)
-    prices.push(product.vendors[vendor].prices[product.vendors[vendor].prices.length - 1]);
+    prices.push(product.vendors[vendor].prices[0]);
   }
 
   var priceHeader = vendors.length > 1 ? <td>{"Today's Prices"}</td> : <td>{"Today's Price"}</td> ;

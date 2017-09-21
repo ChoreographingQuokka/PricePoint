@@ -7,7 +7,7 @@ export const createTable = (obj) => ({
 
 export const deleteTable = (index) => ({
   type: constants.DELETE_TABLE,
-  index, 
+  index,
 });
 
 export const deleteItem = (tableIndex, itemIndex) => ({
