@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { Row, Table, Button, Glyphicon} from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { deleteTable, deleteItem } from '../store/actions/tables';
+import { deleteItem } from '../store/actions/tables';
 import { bindActionCreators } from 'redux';
 import '../styles/main.scss';
 import axios from 'axios';
@@ -17,7 +17,6 @@ const EntryListItem = (props) => {
       table: props.tableName,
       upc: props.listItem.upc})
       .then( (res) => {
-        console.log('entrylist response')
         props.deleteItem(props.listId, props.controlId);
       })
       .catch( (err) => {
@@ -34,7 +33,6 @@ const EntryListItem = (props) => {
 };
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-  deleteTable: deleteTable,
   deleteItem: deleteItem,
 }, dispatch);
 

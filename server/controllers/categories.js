@@ -56,12 +56,9 @@ module.exports.removeItem = (user, table, upc) => {
     });
 };
 
-module.exports.removeCategory = (user, table, upc) => {
+module.exports.removeCategory = (user, table) => {
   return models.Categories.where({
     name: table,
     profile_id: user,
-  }).destroy()
-    .then(model => {
-      return model.serialize();
-    });
+  }).destroy(); 
 };

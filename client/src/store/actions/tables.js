@@ -5,15 +5,15 @@ export const createTable = (obj) => ({
   payload: obj,
 });
 
-export const deleteTable = (tableIndex) => ({
+export const deleteTable = (index) => ({
   type: constants.DELETE_TABLE,
-  tableIndex,
+  index,
 });
 
 export const deleteItem = (tableIndex, itemIndex) => ({
   type: constants.DELETE_ITEM,
   tableIndex,
-  itemIndex, 
+  itemIndex,
 });
 
 export const updateTable = (obj, index) => ({

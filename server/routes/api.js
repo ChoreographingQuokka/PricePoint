@@ -65,6 +65,7 @@ router.route('/categories')
 
 router.route('/categories/:id')
   .get((req, res) => {
+    console.log(req.query); 
     return CategoriesController.addItem(req.query.id, req.query.table, req.query.upc)
       .then(model => {
         var data = model.serialize();
@@ -94,8 +95,7 @@ router.route('/removeCategories')
     console.log('id: ', req.body.id);
     console.log('table: ', req.body.table);
     return CategoriesController.removeCategory(req.body.id, req.body.table)
-      .then(() => {
-        console.log('Successfully removed a category table');
+      .then(model => {
         res.status(201).end();
       })
       .catch(err => {
