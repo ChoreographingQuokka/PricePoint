@@ -9,7 +9,7 @@ import LineGraph from './LineGraph.jsx';
 const Product = (props) => {
   var productItem = [];
   var getProductDataFromState = () => {
-    var UPC = window.location.href.slice(30);
+    var UPC = props.match.params.upc;
     props.results.forEach ( (item) => {
       if ( item.upc === UPC ) {
         productItem.push(item);
